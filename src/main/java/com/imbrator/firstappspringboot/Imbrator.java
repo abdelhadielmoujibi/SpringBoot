@@ -1,16 +1,37 @@
 package com.imbrator.firstappspringboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
+
 class ImbratorComponent {
+    @Value("22")
     private int age ;
     @Autowired
-    private Labtop labtop;
+    @Qualifier("desktop")
+    private Computer com;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Computer getCom() {
+        return com;
+    }
+
+    public void setCom(Computer com) {
+        this.com = com;
+    }
 
     public void deffinition(){
-        labtop.compiling();
+        com.compiling();
 
     }
 }
